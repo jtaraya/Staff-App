@@ -7,4 +7,10 @@ public class Department {
     private long created;
     private long updated;
     private String deleted;
+
+    public Department(String name, String description){
+        this.name = name;
+        this.description = description;
+    }
+
 }
