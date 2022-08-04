@@ -1,5 +1,7 @@
 package models;
 
+import java.util.Objects;
+
 public class Department {
     private String name;
     private String description;
@@ -17,7 +19,7 @@ public class Department {
     public Department(String name, String description) {
         this.name = name;
         this.description= description;
-//        this.createdAt = LocalDateTime.now();
+       //this.createdAt = LocalDateTime.now();
     }
     public Department(String name, String description,int employeeCount) {
         this.name = name;
@@ -40,6 +42,25 @@ public class Department {
 
     public void setEmployeeCount(int employeeCount) {
         this.employeeCount = employeeCount;
+
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Department)) return false;
+        Department that = (Department) o;
+        return getEmployeeCount() == that.getEmployeeCount() &&
+                getId() == that.getId() &&
+                Objects.equals(getName(), that.getName()) &&
+                Objects.equals(getDescription(), that.getDescription());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getName(), getDescription(), getEmployeeCount(), getId());
+
+    }
+
 
 }
