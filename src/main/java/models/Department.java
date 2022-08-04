@@ -1,5 +1,6 @@
 package models;
 
+import java.time.LocalDateTime;
 import java.util.Objects;
 
 public class Department {
@@ -63,4 +64,7 @@ public class Department {
     }
 
 
+    public LocalDateTime getCreatedAt() {
+        return null;
+    }
 }

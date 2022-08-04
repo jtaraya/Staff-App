@@ -26,7 +26,7 @@ public class Sql2oDepartmentDaoTest {
 
         conn = (Connection) sql2o.open();
 
-        //keep connection open through entire test so it does not get erased
+        //keep connection open through entire test. so it does not get erased
     }
 
     @After
@@ -36,7 +36,7 @@ public class Sql2oDepartmentDaoTest {
 
     @Test
     public void addingCourseSetsId() throws Exception {
-        Department department = new Department ("RNIO");
+        Department department = new Department ("RIO");
         int originalDepartmentId = department.getId();
         departmentDao.add(department);
         assertNotEquals(originalDepartmentId, department.getId());
@@ -44,14 +44,14 @@ public class Sql2oDepartmentDaoTest {
 
     @Test
     public void existingTasksCanBeFoundById() throws Exception {
-        Department department = new Department ("RNIO");
+        Department department = new Department ("RIO");
         departmentDao.add(department); //add to dao (takes care of saving)
         Department foundDepartment = departmentDao.findById(department.getId()); //retrieve
         assertEquals(department, foundDepartment); //should be the same
     }
     @Test
     public void addedDepartementsAreReturnedFromgetAll() throws Exception {
-        Department department = new Department ("RNIO");
+        Department department = new Department ("RIO");
         departmentDao.add(department);
         assertEquals(1, departmentDao.getAll().size());
     }
@@ -64,7 +64,7 @@ public class Sql2oDepartmentDaoTest {
 
     @Test
     public void deleteByIdDeletesCorrectDepartment() throws Exception {
-        String initialName = "RNIO";
+        String initialName = "RIO";
         Department department = new Department (initialName);
         departmentDao.add(department);
         departmentDao.deleteById(department.getId());
@@ -74,8 +74,8 @@ public class Sql2oDepartmentDaoTest {
 
     @Test
     public void clearAllClearsAll() throws Exception {
-        Department department = new Department("RNIO");
-        Department otherDepartment = new Department("TSAG");
+        Department department = new Department("RIO");
+        Department otherDepartment = new Department("TAG");
         departmentDao.add(department);
         departmentDao.add(otherDepartment);
         int daoSize = departmentDao.getAll().size();
