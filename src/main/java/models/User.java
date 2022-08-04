@@ -12,4 +12,16 @@ public class User {
     private long created;
     private long updated;
     private String deleted;
+
+    public User(String firstName, String lastName, String staffId, String position, String phoneNo, String email, String photo){
+        this.first_name = firstName;
+        this.last_name = lastName;
+        this.staff_id = staffId;
+        this.user_position = position;
+        this.phone_no = phoneNo;
+        this.photo = photo;
+    }
+
+
+
 }
